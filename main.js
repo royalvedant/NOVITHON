@@ -285,8 +285,98 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function processSimulatedPayment() {
+  async function processSimulatedPayment() {
     // Collect data to display on ticket
+    const name = document.getElementById('reg-name').value;
+    const college = document.getElementById('reg-college').value;
+    const teamType = document.getElementById('reg-teamsize').options[document.getElementById('reg-teamsize').selectedIndex].text;
+    const email = document.getElementById('reg-email').value;
+    const phone = document.getElementById('reg-phone').value;
+
+    // Show processing status
+    btnNext.disabled = true;
+    btnNext.querySelector('span').textContent = 'Creating Order...';
+    btnNext.querySelector('i').className = 'fa-solid fa-spinner fa-spin';
+
+    try {
+      // 1. Create order securely on Express backend
+      const response = await fetch('/api/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      });
+      
+      if (!response.ok) throw new Error("Backend order creation failed");
+      const orderData = await response.json();
+
+      // 2. Open standard Razorpay Checkout modal
+      const options = {
+        "key": orderData.key_id,
+        "amount": orderData.amount,
+        "currency": "INR",
+        "name": "Novithon Hackathon",
+        "description": "Participant Fee - ₹99",
+        "order_id": orderData.order_id,
+        "handler": async function (paymentResponse) {
+          // Show verification state
+          btnNext.querySelector('span').textContent = 'Verifying Payment...';
+          
+          try {
+            // 3. Cryptographically verify signature on backend
+            const verifyRes = await fetch('/api/verify-payment', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                razorpay_order_id: paymentResponse.razorpay_order_id,
+                razorpay_payment_id: paymentResponse.razorpay_payment_id,
+                razorpay_signature: paymentResponse.razorpay_signature
+              })
+            });
+
+            if (!verifyRes.ok) throw new Error("Payment signature verification failed");
+            const verifyData = await verifyRes.json();
+
+            if (verifyData.status === 'success') {
+              completeRegistration(paymentResponse.razorpay_order_id);
+            } else {
+              throw new Error("Invalid signature verification status");
+            }
+          } catch (verifyErr) {
+            console.error("Signature verification error:", verifyErr);
+            alert("Payment signature verification failed. Please contact support.");
+            resetPayButton();
+          }
+        },
+        "prefill": {
+          "name": name,
+          "email": email,
+          "contact": phone
+        },
+        "theme": {
+          "color": "#0f172a"
+        },
+        "modal": {
+          "ondismiss": function () {
+            resetPayButton();
+          }
+        }
+      };
+
+      const rzp = new Razorpay(options);
+      rzp.open();
+    } catch (orderErr) {
+      console.error("Order creation error:", orderErr);
+      alert("Failed to connect to payment server. Please check connection and try again.");
+      resetPayButton();
+    }
+  }
+
+  function resetPayButton() {
+    btnNext.disabled = false;
+    btnNext.querySelector('span').textContent = 'Pay & Register (₹99)';
+    btnNext.querySelector('i').className = 'fa-solid fa-credit-card';
+  }
+
+  function completeRegistration(ticketId) {
     const name = document.getElementById('reg-name').value;
     const college = document.getElementById('reg-college').value;
     const teamType = document.getElementById('reg-teamsize').options[document.getElementById('reg-teamsize').selectedIndex].text;
@@ -296,69 +386,61 @@ document.addEventListener('DOMContentLoaded', () => {
     const year = document.getElementById('reg-year').value;
     const github = document.getElementById('reg-github').value;
     const linkedin = document.getElementById('reg-linkedin').value;
-    const ticketId = `NOV-${Math.floor(100000 + Math.random() * 900000)}`;
 
-    // Show processing status
-    btnNext.disabled = true;
-    btnNext.querySelector('span').textContent = 'Verifying UPI...';
-    btnNext.querySelector('i').className = 'fa-solid fa-spinner fa-spin';
+    const newRegistration = {
+      id: ticketId,
+      name: name,
+      email: email,
+      phone: phone,
+      college: college,
+      department: dept,
+      year: year,
+      teamType: teamType,
+      github: github,
+      linkedin: linkedin,
+      date: new Date().toLocaleDateString('en-GB'),
+      status: 'Paid'
+    };
 
-    setTimeout(() => {
-      // Save registration data to localStorage
-      const newRegistration = {
-        id: ticketId,
-        name: name,
-        email: email,
-        phone: phone,
-        college: college,
-        department: dept,
-        year: year,
-        teamType: teamType,
-        github: github,
-        linkedin: linkedin,
-        date: new Date().toLocaleDateString('en-GB'),
-        status: 'Paid'
-      };
+    try {
+      let currentRegs = JSON.parse(localStorage.getItem('novithon_registrations') || '[]');
+      currentRegs.unshift(newRegistration);
+      localStorage.setItem('novithon_registrations', JSON.stringify(currentRegs));
+    } catch (err) {
+      console.error('Failed to save registration:', err);
+    }
 
-      try {
-        let currentRegs = JSON.parse(localStorage.getItem('novithon_registrations') || '[]');
-        currentRegs.unshift(newRegistration);
-        localStorage.setItem('novithon_registrations', JSON.stringify(currentRegs));
-      } catch (err) {
-        console.error('Failed to save registration:', err);
-      }
+    // Move to success step
+    currentStep = 'success';
+    document.querySelectorAll('.modal-form-step').forEach(step => {
+      step.classList.remove('active');
+    });
+    document.querySelector('.modal-form-step[data-step="success"]').classList.add('active');
 
-      // Move to success step
-      currentStep = 'success';
-      document.querySelectorAll('.modal-form-step').forEach(step => {
-        step.classList.remove('active');
-      });
-      document.querySelector('.modal-form-step[data-step="success"]').classList.add('active');
-      
-      // Update boarding pass values
-      document.getElementById('ticket-name').textContent = name;
-      document.getElementById('ticket-college').textContent = college;
-      document.getElementById('ticket-pass').textContent = teamType;
-      document.getElementById('ticket-id').textContent = ticketId;
+    // Update boarding pass values
+    document.getElementById('ticket-name').textContent = name;
+    document.getElementById('ticket-college').textContent = college;
+    document.getElementById('ticket-pass').textContent = teamType;
+    document.getElementById('ticket-id').textContent = ticketId;
 
-      // Hide actions
-      actionsContainer.style.display = 'none';
-      closeModalBtn.style.display = 'none'; // Lock until dismissed by user action (reloading or custom close btn inside success card if any)
-      
-      // Add dynamic dismiss button inside success view
-      const successStep = document.querySelector('.modal-form-step[data-step="success"]');
-      const finishBtn = document.createElement('button');
-      finishBtn.className = 'btn-primary';
-      finishBtn.style.marginTop = '20px';
-      finishBtn.style.width = '100%';
-      finishBtn.style.justifyContent = 'center';
-      finishBtn.innerHTML = '<span>Finish & Close</span><i class="fa-solid fa-rocket"></i>';
-      finishBtn.addEventListener('click', () => {
-        modalOverlay.classList.remove('open');
-        document.body.style.overflow = 'auto';
-      });
-      successStep.appendChild(finishBtn);
-    }, 2000);
+    // Hide actions
+    actionsContainer.style.display = 'none';
+    closeModalBtn.style.display = 'none';
+
+    // Add dynamic proceed-to-form button inside success view
+    const successStep = document.querySelector('.modal-form-step[data-step="success"]');
+    const finishBtn = document.createElement('button');
+    finishBtn.className = 'btn-primary';
+    finishBtn.style.marginTop = '20px';
+    finishBtn.style.width = '100%';
+    finishBtn.style.justifyContent = 'center';
+    finishBtn.innerHTML = '<span>Proceed to Google Form</span><i class="fa-solid fa-rocket"></i>';
+    finishBtn.addEventListener('click', () => {
+      modalOverlay.classList.remove('open');
+      document.body.style.overflow = 'auto';
+      window.open('https://docs.google.com/forms/d/e/1FAIpQLSdumZy77LHRLe6IjCGZpVypoyvJykgEmihgVim3y1zYsO62-A/viewform', '_blank');
+    });
+    successStep.appendChild(finishBtn);
   }
 
   function resetFormWizard() {
