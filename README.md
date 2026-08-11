@@ -11,7 +11,7 @@ A premium, high-fidelity responsive landing page for the **Novithon Hackathon**�
 ├── admin.html       # Admin Portal console to audit localStorage registrations
 ├── assets/          
 │   ├── bg_video.mp4         # Background particle/space loop video
-│   └── astronaut_coder.png  # Hero graphic coder asset
+│   └── astronaut_hero.jpg  # Hero graphic astronaut asset
 └── .gitignore       # System file rules
 ```
 
