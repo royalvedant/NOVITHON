@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novithon Hackathon - Fuel Your Innovation</title>
+  <meta name="description"
+    content="Register for Novithon Hackathon. ₹1,00,000 cash prizes, certificates for all participants, internship opportunities with Google, Amazon, TCS, ISRO, and exclusive free goodies. Fee: ₹99 only.">
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Animated Background Video -->
+  <div class="video-bg-container">
+    <video autoplay muted loop playsinline class="video-bg">
+      <source src="assets/bg_video.mp4" type="video/mp4">
+    </video>
+    <div class="video-bg-overlay"></div>
+  </div>
+
+  <!-- Grain overlay for cosmic atmosphere -->
+  <div class="cosmic-grain"></div>
+
+  <!-- Space background radial glow highlights -->
+  <div class="cosmic-glow"></div>
+  <div class="cosmic-glow-2"></div>
+
+  <!-- Header Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="nav-brand">
+      <div class="nav-logo-icon">N</div>
+      <span>NOVITHON</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#perks">Perks & Prizes</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdumZy77LHRLe6IjCGZpVypoyvJykgEmihgVim3y1zYsO62-A/viewform" target="_blank" class="btn-primary">
+        <span>Register Now</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <button class="menu-btn" id="menu-btn" aria-label="Open Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="badge">
+        <div class="badge-dot"></div>
+        <span>National Level Hackathon</span>
+      </div>
+      <h1 class="hero-title">Novithon<br>Hackathon</h1>
+      <p class="hero-subtitle">
+        Embark on a 48-hour celestial coding journey. Build solutions, claim massive rewards, and fast-track your tech
+        career with internships at Google, Amazon, and ISRO.
+      </p>
+
+      <!-- Countdown timer -->
+      <div class="timer-container">
+        <span class="timer-label">Launch Countdown</span>
+        <div class="countdown" id="countdown">
+          <div class="countdown-box">
+            <span class="countdown-num" id="days">02</span>
+            <span class="countdown-unit">Days</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-num" id="hours">14</span>
+            <span class="countdown-unit">Hrs</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-num" id="minutes">45</span>
+            <span class="countdown-unit">Mins</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-num" id="seconds">08</span>
+            <span class="countdown-unit">Secs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdumZy77LHRLe6IjCGZpVypoyvJykgEmihgVim3y1zYsO62-A/viewform" target="_blank" class="btn-primary">
+          <span>Register Now — ₹99 Only</span>
+          <i class="fa-solid fa-chevron-right"></i>
+        </a>
+        <a href="#perks" class="btn-secondary">Explore Perks</a>
+      </div>
+    </div>
+
+    <!-- Astronaut Hero Illustration (Right) -->
+    <div class="hero-graphic">
+      <div class="astronaut-card">
+        <img src="assets/astronaut_coder.png" alt="Astronaut working on laptop on space-dust surface"
+          class="astronaut-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats bar -->
+  <section style="padding: 20px 5%;" id="about">
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-num">₹1,00,000</span>
+        <span class="stat-title">Cash Prizes</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">₹99</span>
+        <span class="stat-title">Entry Fee</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">Google & Amazon</span>
+        <span class="stat-title">Internships</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">100%</span>
+        <span class="stat-title">Goodies & Certificates</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Perks and Prizes Section -->
+  <section id="perks">
+    <div class="section-header">
+      <h2 class="section-title">Exclusive Perks & Prizes</h2>
+      <p class="section-desc">Unlock premium rewards, validate your skills, and network with leading tech companies.</p>
+    </div>
+
+    <div class="perks-grid">
+      <!-- Cash Prize Card -->
+      <div class="perk-card perk-card-large cash-prize-accent">
+        <div>
+          <div class="perk-icon-wrapper">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <h3 class="perk-title">₹1,00,000 Cash Pool</h3>
+          <p class="perk-text">
+            Stand out and grab a share of the grand cash pool. Recognition and funding opportunities await the top
+            innovative teams.
+          </p>
+        </div>
+        <div class="prize-display">
+          <div class="prize-amount">₹1,00,000</div>
+          <div class="prize-sub">Distributed among Winner, Runner-up & Top Theme Projects</div>
+        </div>
+      </div>
+
+      <!-- Internship Opportunities -->
+      <div class="perk-card perk-card-medium">
+        <div>
+          <div class="perk-icon-wrapper">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <h3 class="perk-title">Internship Offers</h3>
+          <p class="perk-text">
+            Get interviewed and land internships at world-class technology pioneers and space research agencies.
+          </p>
+        </div>
+        <div>
+          <div class="partner-logo-grid">
+            <div class="partner-logo-tag google">Google</div>
+            <div class="partner-logo-tag amazon">Amazon</div>
+            <div class="partner-logo-tag tcs">TCS</div>
+            <div class="partner-logo-tag isro">ISRO</div>
+            <div class="partner-logo-tag wipro">Wipro</div>
+            <div class="partner-logo-tag infosys">Infosys</div>
+            <div class="partner-logo-tag capgemini">Capgemini</div>
+            <div class="partner-logo-tag" style="font-size: 0.7rem;">& More</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Free Goodies -->
+      <div class="perk-card perk-card-half">
+        <div>
+          <div class="perk-icon-wrapper">
+            <i class="fa-solid fa-gifts"></i>
+          </div>
+          <h3 class="perk-title">Exclusive Goodies Box</h3>
+          <p class="perk-text">
+            Every registered team gets custom swag shipped directly, loaded with premium Hackathon collectibles.
+          </p>
+        </div>
+        <div class="goodies-list">
+          <div class="goody-item">
+            <i class="fa-solid fa-check-double"></i>
+            <span>Novithon Premium Hoodie</span>
+          </div>
+          <div class="goody-item">
+            <i class="fa-solid fa-check-double"></i>
+            <span>Matte Black Coding Mug</span>
+          </div>
+          <div class="goody-item">
+            <i class="fa-solid fa-check-double"></i>
+            <span>Holographic Sticker Pack</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificates Card -->
+      <div class="perk-card perk-card-half">
+        <div>
+          <div class="perk-icon-wrapper">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+          <h3 class="perk-title">Official Certificates</h3>
+          <p class="perk-text">
+            Receive verifiable, globally shareable digital certificates directly backed by our tech collaborators.
+          </p>
+        </div>
+        <div class="goodies-list">
+          <div class="goody-item">
+            <i class="fa-solid fa-award"></i>
+            <span>Certificate of Participation for all applicants</span>
+          </div>
+          <div class="goody-item">
+            <i class="fa-solid fa-award"></i>
+            <span>Certificate of Excellence for shortlists</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaborative Moving Ticker -->
+  <section class="collab-section">
+    <div class="collab-label">Proudly Supported & Collborating with</div>
+    <div class="collab-wrapper">
+      <div class="collab-track">
+        <div class="collab-item"><i class="fa-solid fa-satellite-dish"></i><span class="collab-item-logo"
+            style="color: #f97316;">ISRO</span></div>
+        <div class="collab-item"><i class="fa-solid fa-laptop-code"></i><span class="collab-item-logo"
+            style="color: #0284c7;">TCS</span></div>
+        <div class="collab-item"><i class="fa-brands fa-amazon"></i><span class="collab-item-logo"
+            style="color: #f59e0b;">Amazon</span></div>
+        <div class="collab-item"><i class="fa-brands fa-google"></i><span class="collab-item-logo"
+            style="color: #3b82f6;">Google</span></div>
+        <div class="collab-item"><i class="fa-solid fa-cube"></i><span class="collab-item-logo"
+            style="color: #8b5cf6;">Wipro</span></div>
+        <div class="collab-item"><i class="fa-solid fa-network-wired"></i><span class="collab-item-logo"
+            style="color: #10b981;">Infosys</span></div>
+        <div class="collab-item"><i class="fa-solid fa-microchip"></i><span class="collab-item-logo"
+            style="color: #06b6d4;">Capgemini</span></div>
+        <!-- Duplicate for loop -->
+        <div class="collab-item"><i class="fa-solid fa-satellite-dish"></i><span class="collab-item-logo"
+            style="color: #f97316;">ISRO</span></div>
+        <div class="collab-item"><i class="fa-solid fa-laptop-code"></i><span class="collab-item-logo"
+            style="color: #0284c7;">TCS</span></div>
+        <div class="collab-item"><i class="fa-brands fa-amazon"></i><span class="collab-item-logo"
+            style="color: #f59e0b;">Amazon</span></div>
+        <div class="collab-item"><i class="fa-brands fa-google"></i><span class="collab-item-logo"
+            style="color: #3b82f6;">Google</span></div>
+        <div class="collab-item"><i class="fa-solid fa-cube"></i><span class="collab-item-logo"
+            style="color: #8b5cf6;">Wipro</span></div>
+        <div class="collab-item"><i class="fa-solid fa-network-wired"></i><span class="collab-item-logo"
+            style="color: #10b981;">Infosys</span></div>
+        <div class="collab-item"><i class="fa-solid fa-microchip"></i><span class="collab-item-logo"
+            style="color: #06b6d4;">Capgemini</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule / Timeline Section -->
+  <section id="schedule">
+    <div class="section-header">
+      <h2 class="section-title">Event Schedule</h2>
+      <p class="section-desc">Mark your calendars for the key stages of the Hackathon.</p>
+    </div>
+
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+
+      <!-- Event 1 -->
+      <div class="timeline-event">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-date">Phase 1 — Ongoing</span>
+          <h4 class="timeline-title">Registration & Idea Submission</h4>
+          <p class="timeline-desc">Register solo or in teams of up to 4. Formulate your ideas based on the released
+            tracks and submit your proposal slides.</p>
+        </div>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="timeline-event">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-date">Phase 2 — Aug 25, 2026</span>
+          <h4 class="timeline-title">Shortlist Announcement</h4>
+          <p class="timeline-desc">Top 100 teams nationwide will be shortlisted based on innovation, technical
+            feasibility, and alignment with the challenges.</p>
+        </div>
+      </div>
+
+      <!-- Event 3 -->
+      <div class="timeline-event">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-date">Phase 3 — Sep 04 - 06, 2026</span>
+          <h4 class="timeline-title">48-Hour Hackathon Kickoff</h4>
+          <p class="timeline-desc">Build continuously with online mentorship checkins from engineering leads at Google,
+            Amazon, and ISRO.</p>
+        </div>
+      </div>
+
+      <!-- Event 4 -->
+      <div class="timeline-event">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-date">Phase 4 — Sep 07, 2026</span>
+          <h4 class="timeline-title">Judging & Grand Finale</h4>
+          <p class="timeline-desc">Pitch your prototypes live. Top teams receive cash rewards, and interview slots for
+            internship opportunities are scheduled.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq">
+    <div class="section-header">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-desc">Everything you need to know about registrations, teams, and timelines.</p>
+    </div>
+
+    <div class="faq-container">
+      <!-- FAQ 1 -->
+      <div class="faq-item">
+        <button class="faq-trigger">
+          <span>Who is eligible to participate?</span>
+          <i class="fa-solid fa-plus faq-icon"></i>
+        </button>
+        <div class="faq-content">
+          <p>Any current college student (undergraduate or postgraduate) pursuing engineering, computer science, design,
+            or related fields from recognized institutions is welcome to register.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item">
+        <button class="faq-trigger">
+          <span>What is the team configuration?</span>
+          <i class="fa-solid fa-plus faq-icon"></i>
+        </button>
+        <div class="faq-content">
+          <p>You can participate individually (solo) or as a team containing up to 4 members. Cross-college teams are
+            permitted and highly encouraged!</p>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item">
+        <button class="faq-trigger">
+          <span>What do we get for the ₹99 registration fee?</span>
+          <i class="fa-solid fa-plus faq-icon"></i>
+        </button>
+        <div class="faq-content">
+          <p>The ₹99 fee covers complete access to online platforms, expert mentoring sessions, evaluation eligibility,
+            a participation certificate, eligibility for goodies (hoodies, stickers, mugs), and direct resume reviews
+            for internship partners.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item">
+        <button class="faq-trigger">
+          <span>How are the internship opportunities handled?</span>
+          <i class="fa-solid fa-plus faq-icon"></i>
+        </button>
+        <div class="faq-content">
+          <p>Shortlisted projects and top teams will submit profiles directly to hiring teams at Google, Amazon, TCS,
+            ISRO, Wipro, Infosys, and Capgemini. Direct interviews will be scheduled post-Hackathon based on company
+            availability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Registration Modal -->
+  <div class="modal-overlay" id="reg-modal">
+    <div class="modal-container">
+      <button class="modal-close" id="close-modal" aria-label="Close Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h3 class="modal-title">Novithon Space Registration</h3>
+      <p class="modal-subtitle">Secure your slot in the national Hackathon</p>
+
+      <div class="modal-step-indicator">
+        <div class="modal-step-dot active" data-step="1"></div>
+        <div class="modal-step-dot" data-step="2"></div>
+        <div class="modal-step-dot" data-step="3"></div>
+        <div class="modal-step-dot" data-step="4"></div>
+      </div>
+
+      <form id="reg-form">
+        <!-- Step 1: Personal Info -->
+        <div class="modal-form-step active" data-step="1">
+          <div class="form-group">
+            <label for="reg-name">Full Name</label>
+            <input type="text" id="reg-name" class="form-control" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-email">Email Address</label>
+            <input type="email" id="reg-email" class="form-control" placeholder="name@domain.com" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-phone">Phone Number</label>
+            <input type="tel" id="reg-phone" class="form-control" placeholder="e.g. +91 9876543210" required>
+          </div>
+        </div>
+
+        <!-- Step 2: College Info -->
+        <div class="modal-form-step" data-step="2">
+          <div class="form-group">
+            <label for="reg-college">College / University Name</label>
+            <input type="text" id="reg-college" class="form-control" placeholder="Enter college name" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reg-dept">Department</label>
+              <input type="text" id="reg-dept" class="form-control" placeholder="e.g. CSE, ECE" required>
+            </div>
+            <div class="form-group">
+              <label for="reg-year">Year of Study</label>
+              <select id="reg-year" class="form-control" required>
+                <option value="">Select Year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+                <option value="other">Postgraduate / Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Team Details -->
+        <div class="modal-form-step" data-step="3">
+          <div class="form-group">
+            <label for="reg-teamsize">Participation Type</label>
+            <select id="reg-teamsize" class="form-control" required>
+              <option value="solo">Solo (Individual)</option>
+              <option value="team-2">Team of 2</option>
+              <option value="team-3">Team of 3</option>
+              <option value="team-4">Team of 4</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="reg-github">GitHub Profile (Optional)</label>
+            <input type="url" id="reg-github" class="form-control" placeholder="https://github.com/username">
+          </div>
+          <div class="form-group">
+            <label for="reg-linkedin">LinkedIn Profile</label>
+            <input type="url" id="reg-linkedin" class="form-control" placeholder="https://linkedin.com/in/username"
+              required>
+          </div>
+        </div>
+
+        <!-- Step 4: Simulated Payment Checkout -->
+        <div class="modal-form-step" data-step="4">
+          <div class="summary-card">
+            <div class="summary-row">
+              <span>Registration Pass</span>
+              <span>₹99.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Platform Fee</span>
+              <span>₹0.00</span>
+            </div>
+            <div class="summary-row total">
+              <span>Amount Due</span>
+              <span>₹99.00</span>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top: 8px;">
+            <label>Choose Simulated Payment Option</label>
+            <select id="reg-payment-method" class="form-control">
+              <option value="upi">UPI (GPay, PhonePe, Paytm)</option>
+              <option value="card">Credit / Debit Card</option>
+              <option value="netbanking">Netbanking</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Success Step (Interactive confirmation screen) -->
+        <div class="modal-form-step" data-step="success">
+          <div class="payment-animation-box">
+            <div class="success-icon-wrapper">
+              <i class="fa-solid fa-check"></i>
+            </div>
+            <h4>Registration Completed Successfully!</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">
+              Your ₹99 payment has been verified. Welcome aboard, Commander!
+            </p>
+            <div class="ticket-container">
+              <div
+                style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: var(--accent-gold); text-transform: uppercase;">
+                <span>Novithon Boarding Pass</span>
+                <span id="ticket-id">NOV-824792</span>
+              </div>
+              <div style="margin-top: 5px;">
+                <p style="font-size: 1.1rem; font-weight: 700;" id="ticket-name">Aravind Kumar</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted);" id="ticket-college">Indian Institute of
+                  Technology</p>
+              </div>
+              <div
+                style="display: flex; justify-content: space-between; margin-top: 8px; border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 8px; font-size: 0.75rem; color: var(--text-secondary);">
+                <div>
+                  <span style="display: block; color: var(--text-muted);">Pass Type</span>
+                  <strong id="ticket-pass">Solo</strong>
+                </div>
+                <div>
+                  <span style="display: block; color: var(--text-muted);">Seat Code</span>
+                  <strong>SECT-C9</strong>
+                </div>
+              </div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">
+              A copy of your ticket and goodies redemption details has been sent to your email.
+            </p>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="modal-actions" id="modal-actions-container">
+          <button type="button" class="btn-secondary" id="btn-back" style="visibility: hidden;">Back</button>
+          <button type="button" class="btn-primary" id="btn-next">
+            <span>Next</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-info">
+        <div class="nav-brand footer-logo">
+          <div class="nav-logo-icon">N</div>
+          <span>Novithon</span>
+        </div>
+        <p class="footer-desc">
+          Inspiring students nationwide to innovate, code, and launch stellar careers in high-tech environments.
+        </p>
+      </div>
+
+      <div class="footer-links-grid">
+        <div class="footer-links-col">
+          <span class="footer-links-title">Quick Links</span>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#perks">Perks</a>
+          <a href="#schedule">Schedule</a>
+          <a href="admin.html" style="color: var(--accent-gold); font-weight: 600;"><i class="fa-solid fa-user-gear"
+              style="margin-right: 4px;"></i> Admin Dashboard</a>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-links-title">Collaborations</span>
+          <a href="#perks">ISRO Research</a>
+          <a href="#perks">TCS Careers</a>
+          <a href="#perks">Google Developers</a>
+          <a href="#perks">Amazon Careers</a>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-links-title">Legal</span>
+          <a href="#faq">Terms of Use</a>
+          <a href="#faq">Privacy Policy</a>
+          <a href="#faq">Refund Terms</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Novithon. All rights reserved. Designed for Big Visual innovation.</span>
+      <div class="footer-socials">
+        <a href="#" class="footer-social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="footer-social-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="#" class="footer-social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" class="footer-social-link" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
