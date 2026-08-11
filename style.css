@@ -281,16 +281,16 @@ a {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
-  color: #000000 !important;
+  background: #ffffff;
+  color: #0a0b10 !important;
   font-weight: 700;
   font-size: 0.95rem;
   padding: 12px 24px;
   border-radius: 12px;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-  box-shadow: 0 4px 15px var(--accent-gold-glow);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.12);
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -298,11 +298,24 @@ a {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px var(--accent-gold-glow);
+  background: #f1f5f9;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.22);
 }
 
 .btn-primary:active {
   transform: translateY(0);
+}
+
+[data-theme="light"] .btn-primary {
+  background: #0f172a;
+  color: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.15);
+}
+
+[data-theme="light"] .btn-primary:hover {
+  background: #1e293b;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.25);
 }
 
 /* Mobile Menu Button */
